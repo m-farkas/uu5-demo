@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>uu5 Demo</title>
+
+    <script src="https://cdn.plus4u.net/uu-uu5loaderg01/1.0.0/uu5loaderg01.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.plus4u.net/uu-uu5g05/1.0.0/assets/example-config.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="renderHere"></div>
+
+    <script type="text/babel">
+      import { createVisualComponent, Utils } from "uu5g05";
+      import { Box, Text, Icon, Link } from "uu5g05-elements";
+
+      const Css = Utils.Css.createCssModule("uu5-demo");
+
+      const boxCss = Css.css`
+        margin: 24px;
+        padding: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      `;
+
+      const headerCss = Css.css`
+        margin: 24px;
+      `;
+
+      const rowCss = Css.css`
+        display: flex;
+        align-items: center;
+      `;
+
+      const iconCss = Css.css`
+        font-size: 64px;
+        margin-right: 48px;
+      `;
+
+      const Page = createVisualComponent({
+        render() {
+          return (
+            <Box borderRadius="expressive" className={boxCss}>
+              <Text category="expose" segment="default" type="hero" className={headerCss}>
+                uu5 Demo
+              </Text>
+
+              <div className={rowCss}>
+                <Icon icon="mdi-react" className={iconCss} colorScheme="light-blue" />
+                <Text category="interface" segment="content" type="large">
+                  The{" "}
+                  <Link
+                    href="https://uuapp.plus4u.net/uu-webkit-maing02/b6d739b46b0a4f4980891c3c54a6df5d/"
+                    target="_blank"
+                  >
+                    uu5
+                  </Link>{" "}
+                  is a library and an environment for user interface development. It is based on HTML5, Javascript and{" "}
+                  <Link href="https://beta.reactjs.org/" target="_blank">
+                    React
+                  </Link>
+                  .
+                </Text>
+              </div>
+
+              <div className={rowCss}>
+                <Icon icon="mdi-school" className={iconCss} colorScheme="green" />
+                <Text category="interface" segment="content" type="large">
+                  The{" "}
+                  <Link
+                    href="https://uuapp.plus4u.net/uu-bookkit-maing01/ed11ec379073476db0aa295ad6c00178/book/page?code=getStartedHooks"
+                    target="_blank"
+                  >
+                    Get started
+                  </Link>{" "}
+                  tutorial helps you with your first steps and then you can continue to the{" "}
+                  <Link
+                    href="https://uuapp.plus4u.net/uu-bookkit-maing01/2d79ffe54e8e406b9e542c14a67f4cb4/book/page?code=home"
+                    target="_blank"
+                  >
+                    User guide
+                  </Link>{" "}
+                  or the{" "}
+                  <Link
+                    href="https://uuapp.plus4u.net/uu-bookkit-maing01/05ecbf4e8bca405290b1a6d4cee8813a/book/page?code=01619867"
+                    target="_blank"
+                  >
+                    Reference documentation
+                  </Link>
+                  .
+                </Text>
+              </div>
+            </Box>
+          );
+        }
+      });
+
+      Utils.Dom.render(<Page />, document.getElementById("renderHere"));
+    </script>
+  </body>
+</html>
