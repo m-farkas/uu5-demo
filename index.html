@@ -9,47 +9,47 @@
     <script src="https://cdn.plus4u.net/uu-uu5g05/1.0.0/assets/example-config.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="renderHere"></div>
+    <div id="uu5"></div>
 
     <script type="text/babel">
       import { createVisualComponent, Utils } from "uu5g05";
       import { Box, Text, Icon, Link } from "uu5g05-elements";
+      import { Config } from "uu5g05-dev";
 
-      const Css = Utils.Css.createCssModule("uu5-demo");
+      const Css = {
+        box: () =>
+          Config.Css.css({
+            margin: 24,
+            padding: 48,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 16
+          }),
 
-      const boxCss = Css.css`
-        margin: 24px;
-        padding: 48px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      `;
+        row: () =>
+          Config.Css.css({
+            display: "flex",
+            alignItems: "center"
+          }),
 
-      const headerCss = Css.css`
-        margin: 24px;
-      `;
-
-      const rowCss = Css.css`
-        display: flex;
-        align-items: center;
-      `;
-
-      const iconCss = Css.css`
-        font-size: 64px;
-        margin-right: 48px;
-      `;
+        icon: () =>
+          Config.Css.css({
+            fontSize: 64,
+            marginRight: 48
+          })
+      };
 
       const Page = createVisualComponent({
         render() {
           return (
-            <Box borderRadius="expressive" className={boxCss}>
-              <Text category="expose" segment="default" type="hero" className={headerCss}>
+            <Box borderRadius="expressive" className={Css.box()}>
+              <Text category="expose" segment="default" type="hero">
                 uu5 Demo
               </Text>
 
-              <div className={rowCss}>
-                <Icon icon="mdi-react" className={iconCss} colorScheme="light-blue" />
+              <div className={Css.row()}>
+                <Icon icon="mdi-react" className={Css.icon()} colorScheme="light-blue" />
                 <Text category="interface" segment="content" type="large">
                   The{" "}
                   <Link
@@ -66,8 +66,8 @@
                 </Text>
               </div>
 
-              <div className={rowCss}>
-                <Icon icon="mdi-school" className={iconCss} colorScheme="green" />
+              <div className={Css.row()}>
+                <Icon icon="mdi-school" className={Css.icon()} colorScheme="green" />
                 <Text category="interface" segment="content" type="large">
                   The{" "}
                   <Link
@@ -76,7 +76,7 @@
                   >
                     Get started
                   </Link>{" "}
-                  tutorial helps you with your first steps and then you can continue to the{" "}
+                  tutorial helps you with first steps and then you can continue to the{" "}
                   <Link
                     href="https://uuapp.plus4u.net/uu-bookkit-maing01/2d79ffe54e8e406b9e542c14a67f4cb4/book/page?code=home"
                     target="_blank"
@@ -98,7 +98,7 @@
         }
       });
 
-      Utils.Dom.render(<Page />, document.getElementById("renderHere"));
+      Utils.Dom.render(<Page />, document.getElementById("uu5"));
     </script>
   </body>
 </html>
