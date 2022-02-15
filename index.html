@@ -24,20 +24,20 @@
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 16
+            gap: 16,
           }),
 
         row: () =>
           Config.Css.css({
             display: "flex",
             alignItems: "center",
-            gap: 48
+            gap: 48,
           }),
 
         icon: () =>
           Config.Css.css({
-            fontSize: 64
-          })
+            fontSize: 64,
+          }),
       };
 
       const Page = createVisualComponent({
@@ -95,7 +95,7 @@
               </div>
             </Box>
           );
-        }
+        },
       });
 
       Utils.Dom.render(<Page />, document.getElementById("uu5"));
